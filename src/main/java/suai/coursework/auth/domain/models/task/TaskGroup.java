@@ -8,14 +8,18 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
-
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@RequiredArgsConstructor
 @ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class TaskGroup implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NonNull
+    Integer id;
     @NonNull String label;
-    int color;
+    @NonNull Long color;
 }

@@ -22,6 +22,6 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NonNull Integer id;
     @NonNull String username;
-    int avatarColor;
+    @NonNull Long avatarColor;
     @Nullable String avatarPath;
 }

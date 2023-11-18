@@ -15,17 +15,19 @@ import java.io.Serializable;
 @RequiredArgsConstructor
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "tasks")
 public class Task implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NonNull
     Integer id;
     @NonNull
-    TaskStatus taskStatus;
+    String title;
     @Nullable
-    TaskType taskType;
+    String description;
+    @NonNull
+    Integer statusId;
     @Nullable
-    TaskGroup taskGroup;
-    int color;
+    Integer typeId;
+    @Nullable
+    Integer groupId;
 }

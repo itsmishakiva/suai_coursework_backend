@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ITaskListRepository extends JpaRepository<Task, Integer>  {
     List<Task> findAllBy();
+
 }
