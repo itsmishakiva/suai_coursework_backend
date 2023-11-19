@@ -1,4 +1,4 @@
-package suai.coursework.auth.dao.persistence;
+package suai.coursework.auth.dao.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import suai.coursework.auth.domain.models.task.TaskStatus;

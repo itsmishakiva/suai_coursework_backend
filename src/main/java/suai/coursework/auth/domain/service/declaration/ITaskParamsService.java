@@ -1,10 +1,9 @@
-package suai.coursework.auth.domain.service;
+package suai.coursework.auth.domain.service.declaration;
 
 import org.springframework.http.ResponseEntity;
-import suai.coursework.auth.dao.dto.TaskDto;
-import suai.coursework.auth.dao.dto.TaskGroupDto;
-import suai.coursework.auth.dao.dto.TaskStatusDto;
-import suai.coursework.auth.dao.dto.TaskTypeDto;
+import suai.coursework.auth.dao.dto.task.TaskGroupDto;
+import suai.coursework.auth.dao.dto.task.TaskStatusDto;
+import suai.coursework.auth.dao.dto.task.TaskTypeDto;
 
 public interface ITaskParamsService {
 

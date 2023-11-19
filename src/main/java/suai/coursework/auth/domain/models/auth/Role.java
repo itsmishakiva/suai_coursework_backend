@@ -1,4 +1,4 @@
-package suai.coursework.auth.domain.models;
+package suai.coursework.auth.domain.models.auth;
 
 import jakarta.persistence.*;
 import lombok.*;

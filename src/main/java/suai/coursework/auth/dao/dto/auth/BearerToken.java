@@ -1,4 +1,4 @@
-package suai.coursework.auth.dao.dto;
+package suai.coursework.auth.dao.dto.auth;
 
 
 import lombok.Data;

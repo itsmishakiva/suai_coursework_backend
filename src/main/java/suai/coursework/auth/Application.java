@@ -4,13 +4,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import suai.coursework.auth.dao.dto.TaskGroupDto;
-import suai.coursework.auth.dao.dto.TaskStatusDto;
-import suai.coursework.auth.dao.dto.TaskTypeDto;
-import suai.coursework.auth.domain.service.IAuthUserService;
-import suai.coursework.auth.domain.models.Role;
-import suai.coursework.auth.domain.models.RoleName;
-import suai.coursework.auth.domain.service.ITaskParamsService;
+import suai.coursework.auth.dao.dto.task.TaskGroupDto;
+import suai.coursework.auth.dao.dto.task.TaskStatusDto;
+import suai.coursework.auth.dao.dto.task.TaskTypeDto;
+import suai.coursework.auth.domain.service.declaration.IAuthUserService;
+import suai.coursework.auth.domain.models.auth.Role;
+import suai.coursework.auth.domain.models.auth.RoleName;
+import suai.coursework.auth.domain.service.declaration.ITaskParamsService;
 
 
 @SpringBootApplication

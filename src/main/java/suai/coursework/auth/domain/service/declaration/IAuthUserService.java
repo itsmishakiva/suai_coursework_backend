@@ -1,10 +1,10 @@
-package suai.coursework.auth.domain.service;
+package suai.coursework.auth.domain.service.declaration;
 
 
 import org.springframework.http.ResponseEntity;
-import suai.coursework.auth.dao.dto.LoginDto;
-import suai.coursework.auth.dao.dto.RegisterDto;
-import suai.coursework.auth.domain.models.Role;
+import suai.coursework.auth.dao.dto.auth.LoginDto;
+import suai.coursework.auth.dao.dto.auth.RegisterDto;
+import suai.coursework.auth.domain.models.auth.Role;
 
 
 public interface IAuthUserService {

@@ -1,4 +1,4 @@
-package suai.coursework.auth.dao.dto;
+package suai.coursework.auth.dao.dto.task;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

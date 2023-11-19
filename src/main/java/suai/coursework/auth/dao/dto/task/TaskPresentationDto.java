@@ -1,19 +1,21 @@
-package suai.coursework.auth.dao.dto;
+package suai.coursework.auth.dao.dto.task;
 
-
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.lang.Nullable;
+import suai.coursework.auth.domain.models.users.User;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class TaskDto {
+public class TaskPresentationDto {
     private String title;
     private String description;
     private Integer statusId;
     private Integer typeId;
     private Integer groupId;
-    @Nullable private Integer id;
+    private User user;
 }

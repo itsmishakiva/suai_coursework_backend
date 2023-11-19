@@ -4,9 +4,9 @@ package suai.coursework.auth.presentation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import suai.coursework.auth.domain.service.IAuthUserService;
-import suai.coursework.auth.dao.dto.LoginDto;
-import suai.coursework.auth.dao.dto.RegisterDto;
+import suai.coursework.auth.domain.service.declaration.IAuthUserService;
+import suai.coursework.auth.dao.dto.auth.LoginDto;
+import suai.coursework.auth.dao.dto.auth.RegisterDto;
 
 
 @RestController
@@ -15,15 +15,15 @@ import suai.coursework.auth.dao.dto.RegisterDto;
 public class AuthUserRestController {
 
 
-    private final IAuthUserService iAuthUserService;
+    private final IAuthUserService authUserService;
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody RegisterDto registerDto) {
-        return iAuthUserService.signup(registerDto);
+        return authUserService.signup(registerDto);
     }
 
     @PostMapping("/auth")
     public ResponseEntity<?> auth(@RequestBody LoginDto loginDto) {
-        return iAuthUserService.auth(loginDto);
+        return authUserService.auth(loginDto);
     }
 }

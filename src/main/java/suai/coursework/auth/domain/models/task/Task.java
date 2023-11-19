@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.lang.Nullable;
+import suai.coursework.auth.domain.models.users.User;
 
 import java.io.Serializable;
 
@@ -30,4 +31,6 @@ public class Task implements Serializable {
     Integer typeId;
     @Nullable
     Integer groupId;
+    @Nullable
+    Integer userId;
 }

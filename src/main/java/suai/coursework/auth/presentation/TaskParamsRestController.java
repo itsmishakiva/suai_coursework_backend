@@ -3,10 +3,10 @@ package suai.coursework.auth.presentation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import suai.coursework.auth.dao.dto.TaskGroupDto;
-import suai.coursework.auth.dao.dto.TaskStatusDto;
-import suai.coursework.auth.dao.dto.TaskTypeDto;
-import suai.coursework.auth.domain.service.ITaskParamsService;
+import suai.coursework.auth.dao.dto.task.TaskGroupDto;
+import suai.coursework.auth.dao.dto.task.TaskStatusDto;
+import suai.coursework.auth.dao.dto.task.TaskTypeDto;
+import suai.coursework.auth.domain.service.declaration.ITaskParamsService;
 
 @RestController
 @RequestMapping("/taskparams")

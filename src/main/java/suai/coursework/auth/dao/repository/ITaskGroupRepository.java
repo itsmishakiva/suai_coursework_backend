@@ -1,9 +1,7 @@
-package suai.coursework.auth.dao.persistence;
+package suai.coursework.auth.dao.repository;
 
-import lombok.NonNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 import suai.coursework.auth.domain.models.task.TaskGroup;
-import suai.coursework.auth.domain.models.task.TaskType;
 
 import java.util.List;
 

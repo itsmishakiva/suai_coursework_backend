@@ -3,9 +3,8 @@ package suai.coursework.auth.presentation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import suai.coursework.auth.dao.dto.LoginDto;
-import suai.coursework.auth.dao.dto.TaskDto;
-import suai.coursework.auth.domain.service.ITaskListService;
+import suai.coursework.auth.dao.dto.task.TaskDto;
+import suai.coursework.auth.domain.service.declaration.ITaskListService;
 
 @RestController
 @RequestMapping("/tasks")
@@ -13,21 +12,31 @@ import suai.coursework.auth.domain.service.ITaskListService;
 public class TaskListRestController {
 
 
-    private final ITaskListService iTaskListService;
+    private final ITaskListService taskListService;
 
     @GetMapping
     public ResponseEntity<?> get() {
-        return iTaskListService.get();
+        return taskListService.get();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getById(@PathVariable Integer id) {
+        return taskListService.getById(id);
     }
 
     @PostMapping
     public ResponseEntity<?> post(@RequestBody TaskDto taskDto) {
-        return iTaskListService.post(taskDto);
+        return taskListService.post(taskDto);
     }
 
-    @PutMapping
-    public ResponseEntity<?> put(@RequestBody TaskDto taskDto) {
-        return iTaskListService.put(taskDto);
+    @PutMapping("/{id}")
+    public ResponseEntity<?> put(@PathVariable Integer id, @RequestBody TaskDto taskDto) {
+        return taskListService.put(id, taskDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable Integer id) {
+        return taskListService.delete(id);
     }
 
 }

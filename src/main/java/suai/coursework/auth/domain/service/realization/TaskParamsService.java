@@ -1,19 +1,20 @@
-package suai.coursework.auth.domain.service;
+package suai.coursework.auth.domain.service.realization;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import suai.coursework.auth.dao.dto.TaskGroupDto;
-import suai.coursework.auth.dao.dto.TaskStatusDto;
-import suai.coursework.auth.dao.dto.TaskTypeDto;
-import suai.coursework.auth.dao.persistence.ITaskGroupRepository;
-import suai.coursework.auth.dao.persistence.ITaskStatusRepository;
-import suai.coursework.auth.dao.persistence.ITaskTypeRepository;
+import suai.coursework.auth.dao.dto.task.TaskGroupDto;
+import suai.coursework.auth.dao.dto.task.TaskStatusDto;
+import suai.coursework.auth.dao.dto.task.TaskTypeDto;
+import suai.coursework.auth.dao.repository.ITaskGroupRepository;
+import suai.coursework.auth.dao.repository.ITaskStatusRepository;
+import suai.coursework.auth.dao.repository.ITaskTypeRepository;
 import suai.coursework.auth.domain.models.task.TaskGroup;
 import suai.coursework.auth.domain.models.task.TaskStatus;
 import suai.coursework.auth.domain.models.task.TaskType;
+import suai.coursework.auth.domain.service.declaration.ITaskParamsService;
 
 import java.util.HashMap;
 import java.util.List;
