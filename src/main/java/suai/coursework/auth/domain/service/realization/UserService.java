@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import suai.coursework.auth.dao.repository.IUserRepository;
 import suai.coursework.auth.domain.models.users.User;
 import suai.coursework.auth.domain.service.declaration.IUserService;
+import suai.coursework.auth.security.JwtUtilities;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +19,14 @@ import java.util.Optional;
 public class UserService implements IUserService {
 
     private final IUserRepository userRepository;
+    private final JwtUtilities jwtUtilities;
+
+    @Override
+    public ResponseEntity<?> getMyself(String authHeader) {
+        String token = jwtUtilities.getTokenFromHeader(authHeader);
+        String username = jwtUtilities.extractUsername(token);
+        return getUserByUsername(username);
+    }
 
     @Override
     public ResponseEntity<?> getUserById(Integer id) {

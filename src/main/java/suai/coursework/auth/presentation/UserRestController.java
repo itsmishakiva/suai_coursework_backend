@@ -14,6 +14,11 @@ import suai.coursework.auth.domain.service.declaration.IUserService;
 public class UserRestController {
     private final IUserService userService;
 
+    @GetMapping("/myself")
+    public ResponseEntity<?> getMyself(@RequestHeader("Authorization") String authorization) {
+        return userService.getMyself(authorization);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Integer id) {
         return userService.getUserById(id);

@@ -12,6 +12,7 @@ import suai.coursework.auth.domain.models.users.User;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class TaskPresentationDto {
+    private int id;
     private String title;
     private String description;
     private Integer statusId;

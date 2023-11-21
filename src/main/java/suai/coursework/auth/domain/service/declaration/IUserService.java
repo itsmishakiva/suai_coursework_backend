@@ -7,5 +7,7 @@ public interface IUserService  {
 
     ResponseEntity<?> get();
 
+    ResponseEntity<?> getMyself(String authHeader);
+
     ResponseEntity<?> getUserByUsername(String username);
 }

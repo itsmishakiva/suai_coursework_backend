@@ -17,8 +17,7 @@ import java.io.Serializable;
 public class TaskType implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NonNull
-    Integer id;
+    @NonNull Integer id;
     @NonNull String label;
     @NonNull Long color;
 }

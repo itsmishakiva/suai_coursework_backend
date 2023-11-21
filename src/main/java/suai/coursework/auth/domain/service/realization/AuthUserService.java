@@ -28,6 +28,7 @@ import suai.coursework.auth.security.JwtUtilities;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -51,7 +52,7 @@ public class AuthUserService implements IAuthUserService {
     @Override
     public ResponseEntity<?> signup(RegisterDto registerDto) {
         if (authUserRepository.existsByUsername(registerDto.getUsername())) {
-            return new ResponseEntity<>("Username is already taken !", HttpStatus.SEE_OTHER);
+            return new ResponseEntity<>("Username is already taken !", HttpStatus.BAD_REQUEST);
         } else {
             AuthUser authUser = new AuthUser();
             authUser.setUsername(registerDto.getUsername());
@@ -77,8 +78,10 @@ public class AuthUserService implements IAuthUserService {
                 )
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        AuthUser authUser = authUserRepository.findByUsername(authentication.getName()).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        Optional<AuthUser> authUserOptional = authUserRepository.findByUsername(authentication.getName());
+        if (authUserOptional.isEmpty()) return new ResponseEntity<>("Wrong credentials", HttpStatus.UNAUTHORIZED);
         List<String> rolesNames = new ArrayList<>();
+        AuthUser authUser = authUserOptional.get();
         authUser.getRoles().forEach(r -> rolesNames.add(r.getRoleName()));
         String token = jwtUtilities.generateToken(authUser.getUsername(), rolesNames);;
         return new ResponseEntity<>(new BearerToken(token, "Bearer "), HttpStatus.OK);

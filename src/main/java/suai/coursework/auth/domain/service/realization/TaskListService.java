@@ -36,7 +36,7 @@ public class TaskListService implements ITaskListService {
         for (var task : tasks) {
             if (task.getUserId() == null) {
                 taskDtos.add(
-                        new TaskPresentationDto(task.getTitle(), task.getDescription(), task.getStatusId(), task.getTypeId(), task.getGroupId(), null)
+                        new TaskPresentationDto(task.getId(), task.getTitle(), task.getDescription(), task.getStatusId(), task.getTypeId(), task.getGroupId(), null)
                 );
                 continue;
             }
@@ -44,7 +44,7 @@ public class TaskListService implements ITaskListService {
             User user = null;
             if (optional.isPresent()) user = optional.get();
             taskDtos.add(
-                    new TaskPresentationDto(task.getTitle(), task.getDescription(), task.getStatusId(), task.getTypeId(), task.getGroupId(), user)
+                    new TaskPresentationDto(task.getId(), task.getTitle(), task.getDescription(), task.getStatusId(), task.getTypeId(), task.getGroupId(), user)
             );
         }
         HashMap<String, Object> body = new HashMap<>();
@@ -62,7 +62,7 @@ public class TaskListService implements ITaskListService {
             Optional<User> optional = userRepository.findById(task.getUserId());
             if (optional.isPresent()) user = optional.get();
         }
-        TaskPresentationDto taskDto = new TaskPresentationDto(task.getTitle(), task.getDescription(), task.getStatusId(), task.getTypeId(), task.getGroupId(), user);
+        TaskPresentationDto taskDto = new TaskPresentationDto(task.getId(), task.getTitle(), task.getDescription(), task.getStatusId(), task.getTypeId(), task.getGroupId(), user);
         HashMap<String, Object> body = new HashMap<>();
         body.put("task", task);
         return new ResponseEntity<>(body, HttpStatus.OK);

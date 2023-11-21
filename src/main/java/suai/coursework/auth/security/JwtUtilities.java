@@ -29,7 +29,9 @@ public class JwtUtilities {
 
 
     public String extractUsername(String token) {
-        return extractClaim(token, Claims::getSubject);
+        var a = extractClaim(token, Claims::getSubject);
+        log.info(a);
+        return a;
     }
 
     public Claims extractAllClaims(String token) {
@@ -86,6 +88,14 @@ public class JwtUtilities {
 
     public String getToken(HttpServletRequest httpServletRequest) {
         final String bearerToken = httpServletRequest.getHeader("Authorization");
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
+    }
+
+    public String getTokenFromHeader(String bearerToken) {
+        log.info(bearerToken);
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
             return bearerToken.substring(7);
         }
